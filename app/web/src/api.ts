@@ -1,4 +1,4 @@
-import type { DashboardStats, Demo, Flag, InternalTool, SubmissionPayload, SubmissionResult, User } from './types';
+import type { DashboardStats, Demo, DemoReadmeResult, Flag, InternalTool, SubmissionPayload, SubmissionResult, User } from './types';
 
 export class ApiError extends Error {
   constructor(
@@ -36,6 +36,7 @@ export const api = {
     return request<{ demos: Demo[]; total: number }>(`/api/demos?${q}`);
   },
   getDemo: (id: string) => request<Demo>(`/api/demos/${id}`),
+  getDemoReadme: (id: string) => request<DemoReadmeResult>(`/api/demos/${id}/readme`),
   like: (id: string) => request<{ likeCount: number; likedByCurrentUser: boolean }>(`/api/demos/${id}/like`, { method: 'POST' }),
   view: (id: string, context: 'detail' | 'split') =>
     request<{ viewCount: number }>(`/api/demos/${id}/view`, { method: 'POST', body: JSON.stringify({ context }) }),

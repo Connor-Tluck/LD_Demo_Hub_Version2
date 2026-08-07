@@ -96,6 +96,12 @@ export interface SubmissionResult {
   demoId: string;
 }
 
+export interface DemoReadmeResult {
+  html: string;
+  source: 'github' | 'local';
+  url: string;
+}
+
 export interface SubmissionPayload {
   title: string;
   description: string;

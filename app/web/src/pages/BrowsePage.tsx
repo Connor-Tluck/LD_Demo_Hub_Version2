@@ -5,6 +5,7 @@ import type { Demo } from '../types';
 import { fmt } from '../format';
 import { ACCENT, useToast, useViewMode } from '../App';
 import { EyeIcon, FlagIcon, HeartIcon, PlusIcon, SearchIcon, SplitIcon, XIcon } from '../icons';
+import DemoReadmePanel from '../components/DemoReadmePanel';
 
 
 export function useLikeToggle(update: (id: string, likeCount: number, liked: boolean) => void) {
@@ -254,22 +255,29 @@ export default function BrowsePage() {
                 );
               })}
             </div>
-            <div style={{ flex: 1, minWidth: 0, background: '#fff', border: '1px solid #E6E9EE', borderRadius: 16, overflow: 'hidden', position: 'sticky', top: 0 }}>
-              <div style={{ height: 150, background: selected.gradient, position: 'relative' }}>
+            <div style={{ flex: 1, minWidth: 0, background: '#fff', border: '1px solid #E6E9EE', borderRadius: 16, overflow: 'hidden', position: 'sticky', top: 0, maxHeight: 'calc(100vh - 220px)', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ height: 150, background: selected.gradient, position: 'relative', flex: '0 0 auto' }}>
                 <div style={{ position: 'absolute', right: -10, bottom: -26, fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 130, color: 'rgba(255,255,255,.14)' }}>{selected.mono}</div>
                 <div style={{ position: 'absolute', top: 14, left: 16, background: 'rgba(0,0,0,.28)', color: '#fff', fontSize: 11, fontWeight: 600, padding: '4px 10px', borderRadius: 20 }}>{selected.category}</div>
+                {selected.customer && (
+                  <div style={{ position: 'absolute', top: 14, right: 16, background: 'rgba(255,255,255,.92)', color: '#4338CA', fontSize: 11, fontWeight: 700, padding: '4px 10px', borderRadius: 20 }}>{selected.customer}</div>
+                )}
               </div>
-              <div style={{ padding: '20px 22px 24px' }}>
+              <div style={{ padding: '20px 22px 24px', overflowY: 'auto', flex: 1 }}>
                 <h2 style={{ margin: 0, fontFamily: "'Space Grotesk'", fontSize: 22, letterSpacing: '-.02em' }}>{selected.title}</h2>
                 <p style={{ margin: '8px 0 0', color: '#4A5261', fontSize: 14, lineHeight: 1.6 }}>{selected.description}</p>
-                <div style={{ display: 'flex', gap: 10, marginTop: 18 }}>
+                <div style={{ display: 'flex', gap: 10, marginTop: 18, flexWrap: 'wrap' }}>
                   <button onClick={() => nav(`/demos/${selected.id}`)} style={{ background: ACCENT, color: '#fff', fontWeight: 600, fontSize: 13.5, padding: '9px 16px', borderRadius: 9 }}>Open details</button>
                   {(selected.launchDarkly?.flags.length ?? 0) > 0 && (
                     <button onClick={() => nav(`/demos/${selected.id}/split`)} style={{ background: '#101317', color: '#fff', fontWeight: 600, fontSize: 13.5, padding: '9px 16px', borderRadius: 9, display: 'flex', alignItems: 'center', gap: 7 }}>
                       <SplitIcon size={14} /> Split view
                     </button>
                   )}
+                  <a href={selected.repo.htmlUrl} target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', fontSize: 13.5, fontWeight: 600, color: '#626B78', padding: '9px 4px' }}>
+                    {selected.repo.owner}/{selected.repo.name}
+                  </a>
                 </div>
+                <DemoReadmePanel demo={selected} />
               </div>
             </div>
           </div>

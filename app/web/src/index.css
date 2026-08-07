@@ -19,3 +19,21 @@ input, textarea, select { font-family: inherit; }
 .tool-hover { transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
 .tool-hover:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(16,19,23,.08); border-color: #D2D7DF !important; }
 .menu-item:hover { background: #F2F4F7; }
+
+.demo-readme { font-size: 14px; line-height: 1.65; color: #33393F; word-break: break-word; }
+.demo-readme h1, .demo-readme h2, .demo-readme h3, .demo-readme h4 { font-family: 'Space Grotesk', sans-serif; color: #101317; margin: 1.4em 0 .6em; line-height: 1.25; letter-spacing: -.02em; }
+.demo-readme h1 { font-size: 1.45rem; margin-top: 0; }
+.demo-readme h2 { font-size: 1.2rem; border-bottom: 1px solid #EEF0F3; padding-bottom: .35em; }
+.demo-readme h3 { font-size: 1.05rem; }
+.demo-readme p, .demo-readme ul, .demo-readme ol, .demo-readme pre, .demo-readme blockquote { margin: 0 0 12px; }
+.demo-readme ul, .demo-readme ol { padding-left: 1.4em; }
+.demo-readme li { margin: .25em 0; }
+.demo-readme code { font-family: 'JetBrains Mono', monospace; font-size: .88em; background: #F2F4F7; padding: .15em .4em; border-radius: 5px; }
+.demo-readme pre { background: #0E1116; color: #E6EDF3; padding: 14px 16px; border-radius: 10px; overflow-x: auto; font-size: 12.5px; line-height: 1.5; }
+.demo-readme pre code { background: none; padding: 0; color: inherit; }
+.demo-readme blockquote { border-left: 3px solid #D9DEE6; padding-left: 14px; color: #626B78; }
+.demo-readme img { max-width: 100%; border-radius: 8px; }
+.demo-readme table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 12px; }
+.demo-readme th, .demo-readme td { border: 1px solid #E6E9EE; padding: 8px 10px; text-align: left; }
+.demo-readme th { background: #F7F8FA; font-weight: 600; }
+.demo-readme hr { border: none; border-top: 1px solid #EEF0F3; margin: 20px 0; }

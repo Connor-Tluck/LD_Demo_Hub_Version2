@@ -13,6 +13,7 @@ import { DemoService } from './services/demos.js';
 import { StatsService } from './services/stats.js';
 import { LaunchDarklyService } from './services/launchdarkly.js';
 import { GitHubService } from './services/github.js';
+import { ReadmeService } from './services/readme.js';
 import { demoRoutes } from './routes/demos.js';
 import { flagRoutes } from './routes/flags.js';
 import { submissionRoutes } from './routes/submissions.js';
@@ -27,6 +28,7 @@ export interface AppContext {
   stats: StatsService;
   launchDarkly: LaunchDarklyService;
   github: GitHubService;
+  readme: ReadmeService;
 }
 
 export function buildContext(overrides: Partial<AppConfig> = {}): AppContext {
@@ -43,6 +45,7 @@ export function buildContext(overrides: Partial<AppConfig> = {}): AppContext {
     stats: new StatsService(db, demos),
     launchDarkly: new LaunchDarklyService(config.launchDarkly, db),
     github: new GitHubService(config.github, repoRoot),
+    readme: new ReadmeService(config.github, repoRoot),
   };
 }
 
