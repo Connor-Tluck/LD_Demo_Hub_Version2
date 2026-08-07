@@ -89,11 +89,11 @@ See `app/server/src/types.ts` for full shapes.
 # Catalog
 
 <!-- CATALOG:START -->
-_17 item(s). Auto-generated from `catalog/` — do not edit by hand._
+_18 item(s). Auto-generated from `catalog/` — do not edit by hand._
 
-**Demos: 9 · Internal Tools: 8 · AI Workflows: 0 · Integrations: 0**
+**Demos: 10 · Internal Tools: 8 · AI Workflows: 0 · Integrations: 0**
 
-### Demos (9)
+### Demos (10)
 
 | Name | Owner | Customer-specific | Language(s) | LD features | Description |
 | --- | --- | --- | --- | --- | --- |
@@ -106,6 +106,7 @@ _17 item(s). Auto-generated from `catalog/` — do not edit by hand._
 | [Hospitality App Demo](https://github.com/Connor-Tluck/LD_Hospitality_Demo) | Connor Tluck | Yes | Swift, iOS | Feature Flags, Experimentation, Observability, Agent Control | Custom iOS app demo for a hospitality customer. |
 | [Prerequisite Flag Orchestration](https://github.com/Connor-Tluck/Pre-Requisite-Flag-Demo) | Connor Tluck | No | Node.js, Express, D3.js, LD Node Server SDK | Observability | Interactive D3 dependency graph — toggle a flag and watch prerequisite dependencies cascade across a multi-team checkout release. |
 | [Release Runner](https://github.com/Connor-Tluck/ld-release-runner) | Connor Tluck | No | Node.js, JavaScript, WebSocket, LD Node Server SDK | Experimentation | Synthetic flag evaluations and metric events that drive real guarded release decisions — demo a healthy rollout or force an auto-rollback on demand. |
+| [test](https://github.com/Connor-Tluck/Job_Tracker_LaunchDarkly) | Connor Tluck | No |  |  | test |
 
 ### Internal Tools (8)
 
