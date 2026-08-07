@@ -1,0 +1,55 @@
+{
+  "id": "kill-switch",
+  "title": "Instant Kill Switch",
+  "mono": "KS",
+  "gradient": "linear-gradient(135deg,#F97316,#EF4444)",
+  "description": "Disable a failing dependency in one click, no deploy. The incident-response classic.",
+  "longDescription": [
+    "Simulate a third-party outage and flip the kill switch to gracefully degrade — no redeploy, no rollback, instant mitigation."
+  ],
+  "tags": [
+    "kill-switch",
+    "ops",
+    "incident"
+  ],
+  "category": "Reliability",
+  "techStack": [
+    "React",
+    "Node"
+  ],
+  "author": {
+    "name": "Sam Okoro",
+    "email": "sokoro@launchdarkly.com",
+    "avatarColor": "linear-gradient(135deg,#F97316,#EF4444)"
+  },
+  "createdAt": "2026-05-06",
+  "updatedAt": "2026-06-25",
+  "status": "published",
+  "repo": {
+    "owner": "Connor-Tluck",
+    "name": "LD_Demo_Hub",
+    "path": "demos/kill-switch",
+    "branch": "main"
+  },
+  "liveDemoUrl": "https://killswitch.demos.dev",
+  "launchDarkly": {
+    "projectKey": "CT-Demo_Hub",
+    "environmentKey": "production",
+    "flags": [
+      {
+        "key": "payments-enabled",
+        "name": "Payments Enabled",
+        "description": "Master switch for the payments dependency.",
+        "kind": "boolean",
+        "defaultValue": true
+      },
+      {
+        "key": "maintenance-mode",
+        "name": "Maintenance Mode",
+        "description": "Show a maintenance banner site-wide.",
+        "kind": "boolean",
+        "defaultValue": false
+      }
+    ]
+  }
+}

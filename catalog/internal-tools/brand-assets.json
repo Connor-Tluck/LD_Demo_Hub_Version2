@@ -1,0 +1,9 @@
+{
+  "id": "brand-assets",
+  "mono": "BA",
+  "name": "Brand & Assets",
+  "description": "Logos, templates, and approved talk tracks.",
+  "bg": "linear-gradient(135deg,#F97316,#EF4444)",
+  "url": "#",
+  "placeholder": true
+}

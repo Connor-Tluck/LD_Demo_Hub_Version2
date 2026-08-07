@@ -1,0 +1,69 @@
+{
+  "id": "mobile-config",
+  "title": "Mobile Remote Config",
+  "mono": "MC",
+  "gradient": "linear-gradient(135deg,#2563EB,#06B6D4)",
+  "description": "Change native app config without an App Store release. Values stream to the client.",
+  "longDescription": [
+    "Demonstrate remote config for native mobile: change themes, feature availability, and copy live without shipping a new build."
+  ],
+  "tags": [
+    "mobile",
+    "config",
+    "ios"
+  ],
+  "category": "Mobile",
+  "techStack": [
+    "Swift",
+    "iOS"
+  ],
+  "author": {
+    "name": "Lena Fischer",
+    "email": "lfischer@launchdarkly.com",
+    "avatarColor": "linear-gradient(135deg,#2563EB,#06B6D4)"
+  },
+  "createdAt": "2026-05-22",
+  "updatedAt": "2026-06-15",
+  "status": "published",
+  "repo": {
+    "owner": "Connor-Tluck",
+    "name": "LD_Demo_Hub",
+    "path": "demos/mobile-config",
+    "branch": "main"
+  },
+  "liveDemoUrl": "https://mobile.demos.dev",
+  "launchDarkly": {
+    "projectKey": "CT-Demo_Hub",
+    "environmentKey": "production",
+    "flags": [
+      {
+        "key": "dark-theme",
+        "name": "Dark Theme",
+        "description": "Force the app into dark theme.",
+        "kind": "boolean",
+        "defaultValue": false
+      },
+      {
+        "key": "home-layout",
+        "name": "Home Layout",
+        "description": "Which home screen layout to render.",
+        "kind": "multivariate",
+        "defaultValue": "grid",
+        "variations": [
+          {
+            "value": "list",
+            "name": "List"
+          },
+          {
+            "value": "grid",
+            "name": "Grid"
+          },
+          {
+            "value": "carousel",
+            "name": "Carousel"
+          }
+        ]
+      }
+    ]
+  }
+}

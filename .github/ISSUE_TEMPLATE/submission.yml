@@ -1,0 +1,124 @@
+name: Add to the Demo Hub
+description: Register a demo, internal tool, AI workflow, or integration. Submitting opens a PR that adds it to the catalog.
+title: "[Hub] <name of your thing>"
+labels: ["hub-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Add anything you've built that another SE could reuse — a custom demo, an
+        internal tool, an AI workflow, an integration. You don't need to move or
+        restructure your code; we just link to it and tag it so it's findable in
+        the gallery. Submitting opens a PR automatically; a maintainer merges it
+        to publish.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Which area does this belong in?
+      options:
+        - Demos
+        - Internal Tools
+        - AI Workflows
+        - Integrations
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: e.g. Hospitality App Demo
+    validations:
+      required: true
+
+  - type: input
+    id: repo_url
+    attributes:
+      label: Repository / link
+      description: For Demos this must be a GitHub repo URL (the gallery links to it).
+      placeholder: https://github.com/your-handle/your-thing
+    validations:
+      required: true
+
+  - type: input
+    id: owner
+    attributes:
+      label: Owner
+      description: Who maintains it? (Name or GitHub handle)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: customer_specific
+    attributes:
+      label: Is this tied to a specific customer?
+      description: "Yes = bespoke/customer-flavored (keep it in its private repo). No = generic and reusable."
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
+
+  - type: input
+    id: languages
+    attributes:
+      label: Language(s)
+      description: Comma-separated.
+      placeholder: e.g. TypeScript, Python
+    validations:
+      required: true
+
+  - type: dropdown
+    id: ld_features
+    attributes:
+      label: LaunchDarkly features used
+      multiple: true
+      options:
+        - Feature Flags
+        - Experimentation
+        - Observability
+        - Code Control
+        - AI Configs
+        - Agent Control
+        - Guardian
+        - None / N/A
+    validations:
+      required: true
+
+  - type: input
+    id: framework
+    attributes:
+      label: Framework / stack
+      placeholder: e.g. React/Vite + Fastify, Next.js, iOS/Swift, CLI
+    validations:
+      required: false
+
+  - type: dropdown
+    id: docker
+    attributes:
+      label: Runs in Docker?
+      options:
+        - "Not sure"
+        - "Yes"
+        - "No"
+    validations:
+      required: false
+
+  - type: input
+    id: tags
+    attributes:
+      label: Extra tags
+      description: Optional, comma-separated. Anything else that helps people find it.
+      placeholder: e.g. ecommerce, mobile, rag, terraform
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What is it / what does it do?
+      description: One or two sentences.
+    validations:
+      required: true

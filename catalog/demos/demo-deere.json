@@ -1,0 +1,34 @@
+{
+  "id": "demo-deere",
+  "title": "demo-deere",
+  "mono": "DE",
+  "gradient": "linear-gradient(135deg,#475569,#0F172A)",
+  "description": "Customer custom demo for John Deere.",
+  "longDescription": [
+    "Customer custom demo for John Deere."
+  ],
+  "tags": [
+    "feature-flags",
+    "experimentation",
+    "code-control",
+    "customer-specific"
+  ],
+  "category": "Customer Demos",
+  "techStack": [],
+  "author": {
+    "name": "Jason Clark",
+    "email": "",
+    "avatarColor": "linear-gradient(135deg,#F97316,#EF4444)"
+  },
+  "createdAt": "2026-07-17",
+  "updatedAt": "2026-07-17",
+  "status": "published",
+  "repo": {
+    "owner": "areafans",
+    "name": "demo-deere",
+    "branch": "main"
+  },
+  "liveDemoUrl": null,
+  "launchDarkly": null,
+  "customerSpecific": true
+}

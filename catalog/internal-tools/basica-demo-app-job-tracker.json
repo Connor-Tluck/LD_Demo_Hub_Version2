@@ -1,0 +1,18 @@
+{
+  "id": "basica-demo-app-job-tracker",
+  "mono": "JT",
+  "name": "Basica Demo App (Job Tracker)",
+  "description": "Custom demo showing a job tracker.",
+  "bg": "linear-gradient(135deg,#0EA5A5,#10B981)",
+  "url": "https://github.com/Connor-Tluck/Job_Tracker_LaunchDarkly",
+  "repo": "https://github.com/Connor-Tluck/Job_Tracker_LaunchDarkly",
+  "owner": "Connor Tluck",
+  "ldFeatures": [
+    "Feature Flags",
+    "Experimentation",
+    "Observability",
+    "Agent Control"
+  ],
+  "added": "2026-07-17",
+  "submittedBy": "Connor-Tluck"
+}

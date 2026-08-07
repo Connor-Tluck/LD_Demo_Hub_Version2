@@ -1,0 +1,9 @@
+{
+  "id": "claude-skills",
+  "mono": "CS",
+  "name": "Claude Skills Repo",
+  "description": "Reusable agent skills & prompts for the SE team.",
+  "bg": "linear-gradient(135deg,#7C3AED,#DB2777)",
+  "url": "#",
+  "placeholder": true
+}

@@ -1,0 +1,84 @@
+{
+  "id": "progressive-rollout",
+  "title": "Progressive Rollout Playground",
+  "mono": "PR",
+  "gradient": "linear-gradient(135deg,#3355FF,#7B5CFF)",
+  "description": "Ship a feature to 1% then dial it up. Watch guarded rollouts auto-rollback on error spikes.",
+  "longDescription": [
+    "A hands-on playground for progressive delivery. Start a release at 1% of traffic, monitor the guardrail metrics, and ramp to 100% — or let a guarded rollout auto-revert when errors spike.",
+    "Great for the \"flip a flag, watch it change\" moment on customer calls. Toggle the connected flags on the right and the storefront on the left updates instantly."
+  ],
+  "tags": [
+    "rollouts",
+    "canary",
+    "guarded-release"
+  ],
+  "category": "Rollouts",
+  "techStack": [
+    "React",
+    "Node"
+  ],
+  "author": {
+    "name": "Connor Tluck",
+    "email": "ctluck@launchdarkly.com",
+    "avatarColor": "linear-gradient(135deg,#F97316,#EF4444)"
+  },
+  "createdAt": "2026-04-11",
+  "updatedAt": "2026-06-28",
+  "status": "published",
+  "repo": {
+    "owner": "Connor-Tluck",
+    "name": "LD_Demo_Hub",
+    "path": "demos/progressive-rollout",
+    "branch": "main"
+  },
+  "liveDemoUrl": "https://rollout.demos.dev",
+  "launchDarkly": {
+    "projectKey": "CT-Demo_Hub",
+    "environmentKey": "production",
+    "flags": [
+      {
+        "key": "new-checkout",
+        "name": "New Checkout Flow",
+        "description": "One-page express checkout instead of the multi-step flow.",
+        "kind": "boolean",
+        "defaultValue": true
+      },
+      {
+        "key": "promo-banner",
+        "name": "Promo Banner",
+        "description": "Which promotional banner variant to show on the storefront.",
+        "kind": "multivariate",
+        "defaultValue": "holiday",
+        "variations": [
+          {
+            "value": "control",
+            "name": "Control"
+          },
+          {
+            "value": "holiday",
+            "name": "Holiday"
+          },
+          {
+            "value": "vip",
+            "name": "VIP"
+          }
+        ]
+      },
+      {
+        "key": "express-shipping",
+        "name": "Express Shipping Badge",
+        "description": "Show a 2-day shipping badge on product cards.",
+        "kind": "boolean",
+        "defaultValue": false
+      },
+      {
+        "key": "recommendations",
+        "name": "AI Recommendations",
+        "description": "Render the personalized \"Recommended for you\" row.",
+        "kind": "boolean",
+        "defaultValue": true
+      }
+    ]
+  }
+}

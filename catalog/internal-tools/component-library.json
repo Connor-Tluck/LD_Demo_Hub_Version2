@@ -1,0 +1,9 @@
+{
+  "id": "component-library",
+  "mono": "UI",
+  "name": "Component Library",
+  "description": "Shared design system and UI kit for demos.",
+  "bg": "linear-gradient(135deg,#0EA5A5,#10B981)",
+  "url": "#",
+  "placeholder": true
+}

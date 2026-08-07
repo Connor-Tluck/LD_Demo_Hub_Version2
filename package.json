@@ -1,0 +1,13 @@
+{
+  "name": "ld-demo-hub-version2",
+  "private": true,
+  "description": "SE Demo Hub — catalog + web app monorepo",
+  "scripts": {
+    "dev": "npm run dev --prefix app/server",
+    "dev:web": "npm run dev --prefix app/web",
+    "build": "npm run build --prefix app/web",
+    "install:all": "npm install --prefix app/web && npm install --prefix app/server",
+    "test": "npm test --prefix app/server",
+    "validate-catalog": "node scripts/validate-catalog.mjs"
+  }
+}

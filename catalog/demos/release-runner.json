@@ -1,0 +1,46 @@
+{
+  "id": "release-runner",
+  "title": "Release Runner",
+  "mono": "RR",
+  "gradient": "linear-gradient(135deg,#3355FF,#7B5CFF)",
+  "description": "Synthetic flag evaluations and metric events that drive real guarded release decisions — demo a healthy rollout or force an auto-rollback on demand.",
+  "longDescription": [
+    "A local Node.js app that generates synthetic flag evaluations and metric events (errors, latency, conversions) against a LaunchDarkly flag — driving guarded release decisions without real app traffic. Error, latency, and conversion rates are configurable, so you can demo a healthy progressive rollout or force a failing one that auto-rolls back in front of the customer.",
+    "A live WebSocket dashboard shows the control/treatment split in real time. Simulated users evaluate the flag through the LD Node Server SDK — the exact same variationDetail() call a real application makes — so the guarded release monitors genuine SDK traffic.",
+    "Run it locally: npm install && npm start. You'll need a server-side SDK key, a REST API token, and a flag with a guarded release configured on it. Expect metrics to take ~5–15 minutes to surface in LaunchDarkly. Note: the guarded release makes real advance/rollback decisions, so point it at a test environment."
+  ],
+  "tags": [
+    "guarded-releases",
+    "experimentation",
+    "metrics",
+    "progressive-delivery",
+    "traffic-simulation",
+    "node.js",
+    "server-sdk"
+  ],
+  "category": "Rollouts",
+  "techStack": ["Node.js", "JavaScript", "WebSocket", "LD Node Server SDK"],
+  "author": {
+    "name": "Connor Tluck",
+    "email": "ctluck@launchdarkly.com",
+    "avatarColor": "linear-gradient(135deg,#F97316,#EF4444)"
+  },
+  "createdAt": "2026-06-02",
+  "updatedAt": "2026-06-02",
+  "status": "published",
+  "repo": { "owner": "Connor-Tluck", "name": "ld-release-runner", "branch": "main" },
+  "liveDemoUrl": null,
+  "launchDarkly": {
+    "projectKey": "CT-Demo_Hub",
+    "environmentKey": "production",
+    "flags": [
+      {
+        "key": "guarded-release-demo",
+        "name": "Guarded Release Target",
+        "description": "The flag Release Runner evaluates and sends metrics against. Configure a guarded release on it in LaunchDarkly, then point the runner at this key.",
+        "kind": "boolean",
+        "defaultValue": false
+      }
+    ]
+  }
+}

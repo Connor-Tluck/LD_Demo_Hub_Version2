@@ -1,0 +1,34 @@
+name: Validate catalog
+
+# Every PR (intake-generated, wizard-generated, or hand-made) must pass
+# validation and ship a fresh README index before it can merge.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '20'
+
+      - name: Validate catalog entries
+        run: node scripts/validate-catalog.mjs
+
+      - name: Check README index is up to date
+        run: |
+          node scripts/generate-catalog-index.mjs
+          if ! git diff --quiet README.md; then
+            echo "::error::README.md index is stale. Run: node scripts/generate-catalog-index.mjs"
+            git diff README.md
+            exit 1
+          fi

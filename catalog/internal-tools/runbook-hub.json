@@ -1,0 +1,9 @@
+{
+  "id": "runbook-hub",
+  "mono": "RB",
+  "name": "Runbook Hub",
+  "description": "Demo scripts, incident runbooks, and playbooks.",
+  "bg": "linear-gradient(135deg,#475569,#0F172A)",
+  "url": "#",
+  "placeholder": true
+}

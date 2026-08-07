@@ -1,0 +1,81 @@
+{
+  "id": "prerequisite-flag-demo",
+  "title": "Prerequisite Flag Orchestration",
+  "mono": "PF",
+  "gradient": "linear-gradient(135deg,#0EA5A5,#10B981)",
+  "description": "Interactive D3 dependency graph — toggle a flag and watch prerequisite dependencies cascade across a multi-team checkout release.",
+  "longDescription": [
+    "An interactive dependency-graph visualizer showing how prerequisite flags coordinate multi-team releases. Toggle a flag and watch dependencies cascade live — blocked / ready / active states with colored links for broken dependencies. It models a realistic checkout release across Core API, Web Experience, and a master release gate: the gate can't open until every upstream component is verified.",
+    "Runs in simulation mode with no LaunchDarkly account, or in live mode with bidirectional sync — toggle in the graph and see the LD dashboard update, or toggle in LD and watch the graph react. Includes a mock \"VERDE+\" storefront with flag-driven UI, observability, and session replay.",
+    "Run it locally with npm start (deployable to Vercel). Live mode needs a server SDK key + API token; npm run setup-flags auto-creates the six demo flags with their prerequisite relationships."
+  ],
+  "tags": [
+    "prerequisites",
+    "release-orchestration",
+    "dependency-graph",
+    "visualization",
+    "observability",
+    "node.js",
+    "d3.js"
+  ],
+  "category": "Release Orchestration",
+  "techStack": ["Node.js", "Express", "D3.js", "LD Node Server SDK"],
+  "author": {
+    "name": "Connor Tluck",
+    "email": "ctluck@launchdarkly.com",
+    "avatarColor": "linear-gradient(135deg,#F97316,#EF4444)"
+  },
+  "createdAt": "2026-03-25",
+  "updatedAt": "2026-06-08",
+  "status": "published",
+  "repo": { "owner": "Connor-Tluck", "name": "Pre-Requisite-Flag-Demo", "branch": "main" },
+  "liveDemoUrl": null,
+  "launchDarkly": {
+    "projectKey": "CT-Demo_Hub",
+    "environmentKey": "production",
+    "flags": [
+      {
+        "key": "api-payment-service-v2",
+        "name": "Payment Service v2",
+        "description": "Core API team. No prerequisites — an upstream root of the release graph.",
+        "kind": "boolean",
+        "defaultValue": false
+      },
+      {
+        "key": "api-order-management-v2",
+        "name": "Order Management v2",
+        "description": "Core API team. No prerequisites — an upstream root of the release graph.",
+        "kind": "boolean",
+        "defaultValue": false
+      },
+      {
+        "key": "web-checkout-redesign",
+        "name": "Checkout Redesign",
+        "description": "Web Experience team. Prerequisites: Payment Service v2, Order Management v2.",
+        "kind": "boolean",
+        "defaultValue": false
+      },
+      {
+        "key": "web-one-click-purchase",
+        "name": "One-Click Purchase",
+        "description": "Web Experience team. Prerequisite: Checkout Redesign.",
+        "kind": "boolean",
+        "defaultValue": false
+      },
+      {
+        "key": "web-recommended-styles",
+        "name": "Recommended Styles",
+        "description": "Web Experience team. Independent feature — no prerequisites.",
+        "kind": "boolean",
+        "defaultValue": false
+      },
+      {
+        "key": "release-checkout-v2",
+        "name": "Checkout v2 — Full Release",
+        "description": "Master release gate. Prerequisites: Checkout Redesign, One-Click Purchase.",
+        "kind": "boolean",
+        "defaultValue": false
+      }
+    ]
+  }
+}

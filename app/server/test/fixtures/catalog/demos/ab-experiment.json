@@ -1,0 +1,65 @@
+{
+  "id": "ab-experiment",
+  "title": "Checkout A/B Experiment",
+  "mono": "AB",
+  "gradient": "linear-gradient(135deg,#7C3AED,#DB2777)",
+  "description": "Run a two-variation experiment on the checkout button and read conversion in real time.",
+  "longDescription": [
+    "A/B test a green vs. blue checkout CTA and watch the conversion metric update. This demo ships without a hosted URL — the flag panel is shown read-only."
+  ],
+  "tags": [
+    "experiments",
+    "metrics",
+    "ab-test"
+  ],
+  "category": "Experimentation",
+  "techStack": [
+    "Next.js",
+    "Python"
+  ],
+  "author": {
+    "name": "Marco Diaz",
+    "email": "mdiaz@launchdarkly.com",
+    "avatarColor": "linear-gradient(135deg,#7C3AED,#DB2777)"
+  },
+  "createdAt": "2026-02-18",
+  "updatedAt": "2026-06-30",
+  "status": "published",
+  "repo": {
+    "owner": "Connor-Tluck",
+    "name": "LD_Demo_Hub",
+    "path": "demos/ab-experiment",
+    "branch": "main"
+  },
+  "liveDemoUrl": null,
+  "launchDarkly": {
+    "projectKey": "CT-Demo_Hub",
+    "environmentKey": "test",
+    "flags": [
+      {
+        "key": "cta-color",
+        "name": "CTA Color",
+        "description": "Experiment: checkout button color.",
+        "kind": "multivariate",
+        "defaultValue": "green",
+        "variations": [
+          {
+            "value": "blue",
+            "name": "Blue"
+          },
+          {
+            "value": "green",
+            "name": "Green"
+          }
+        ]
+      },
+      {
+        "key": "sticky-cta",
+        "name": "Sticky CTA",
+        "description": "Pin the checkout button to the bottom on scroll.",
+        "kind": "boolean",
+        "defaultValue": false
+      }
+    ]
+  }
+}

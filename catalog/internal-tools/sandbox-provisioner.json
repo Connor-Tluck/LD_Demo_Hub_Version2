@@ -1,0 +1,9 @@
+{
+  "id": "sandbox-provisioner",
+  "mono": "SB",
+  "name": "Sandbox Provisioner",
+  "description": "Spin up isolated demo environments on demand.",
+  "bg": "linear-gradient(135deg,#2563EB,#06B6D4)",
+  "url": "#",
+  "placeholder": true
+}

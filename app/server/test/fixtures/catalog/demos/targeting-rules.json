@@ -1,0 +1,69 @@
+{
+  "id": "targeting-rules",
+  "title": "Contextual Targeting Rules",
+  "mono": "TR",
+  "gradient": "linear-gradient(135deg,#0EA5A5,#10B981)",
+  "description": "Target by plan, region, and custom attributes. Build a segment live and see who matches.",
+  "longDescription": [
+    "Show how targeting rules resolve per user context. Switch the impersonated user between plans and regions and watch which variation each one receives."
+  ],
+  "tags": [
+    "targeting",
+    "segments",
+    "rules"
+  ],
+  "category": "Targeting",
+  "techStack": [
+    "React",
+    "Go"
+  ],
+  "author": {
+    "name": "Priya Nair",
+    "email": "pnair@launchdarkly.com",
+    "avatarColor": "linear-gradient(135deg,#0EA5A5,#22C55E)"
+  },
+  "createdAt": "2026-03-02",
+  "updatedAt": "2026-06-19",
+  "status": "published",
+  "repo": {
+    "owner": "Connor-Tluck",
+    "name": "LD_Demo_Hub",
+    "path": "demos/targeting-rules",
+    "branch": "main"
+  },
+  "liveDemoUrl": "https://targeting.demos.dev",
+  "launchDarkly": {
+    "projectKey": "CT-Demo_Hub",
+    "environmentKey": "production",
+    "flags": [
+      {
+        "key": "beta-dashboard",
+        "name": "Beta Dashboard",
+        "description": "Gate the redesigned dashboard behind a targeting rule.",
+        "kind": "boolean",
+        "defaultValue": true
+      },
+      {
+        "key": "plan-tier",
+        "name": "Plan Tier Experience",
+        "description": "Serve different UI per plan tier.",
+        "kind": "multivariate",
+        "defaultValue": "pro",
+        "variations": [
+          {
+            "value": "free",
+            "name": "Free"
+          },
+          {
+            "value": "pro",
+            "name": "Pro"
+          },
+          {
+            "value": "enterprise",
+            "name": "Enterprise"
+          }
+        ]
+      }
+    ]
+  }
+}

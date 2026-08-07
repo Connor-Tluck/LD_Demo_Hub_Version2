@@ -1,0 +1,172 @@
+name: Hub intake
+
+# Fires when someone submits the "Add to the Demo Hub" issue form (directly on
+# GitHub, or via the Slack bot — both open the same labeled issue). The form
+# auto-applies the `hub-submission` label; we gate on it.
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  intake:
+    if: contains(github.event.issue.labels.*.name, 'hub-submission')
+    runs-on: ubuntu-latest
+    steps:
+      # First-party actions; third-party ones below are pinned to commit SHAs.
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '20'
+
+      # Turns the issue-form body into JSON keyed by the field `id`s in
+      # submission.yml.
+      - name: Parse issue form
+        id: parse
+        uses: stefanbuck/github-issue-parser@cb6e97157cbf851e3a393ff8d57c93a484cc323f # v3.2.2
+        with:
+          template-path: .github/ISSUE_TEMPLATE/submission.yml
+
+      # Write catalog/<category>/<slug>.json. Demos get a full gallery catalog
+      # document; the other categories get a link entry. Parsed JSON comes in
+      # via env (not interpolated) so an attacker-controlled issue body can't
+      # inject code into the runner — preserve this pattern in any edits.
+      - name: Write catalog entry
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          FORM_JSON: ${{ steps.parse.outputs.jsonString }}
+          ISSUE_USER: ${{ github.event.issue.user.login }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const form = JSON.parse(process.env.FORM_JSON);
+
+            const slug = (s) => String(s || '').toLowerCase().trim()
+              .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            const arr = (s) => String(s || '').split(',').map(x => x.trim()).filter(Boolean);
+
+            const category = slug(form.category) || 'demos';
+            const name = (form.name || '').trim();
+            const id = slug(name);
+            const repoUrl = (form.repo_url || '').trim();
+            const owner = (form.owner || '').trim();
+            const customerSpecific = /^y/i.test(form.customer_specific || '');
+            const languages = arr(form.languages);
+            const ldFeatures = arr(form.ld_features).filter(f => f !== 'None / N/A');
+            const framework = (form.framework || '').trim();
+            const tags = arr(form.tags);
+            const description = (form.description || '').trim().replace(/\r?\n+/g, ' ');
+            const today = new Date().toISOString().slice(0, 10);
+
+            const mono = name.split(/\s+/).map(w => w.replace(/[^a-zA-Z0-9]/g, '')[0])
+              .filter(Boolean).slice(0, 2).join('').toUpperCase() || 'XX';
+            const gradients = [
+              'linear-gradient(135deg,#3355FF,#7B5CFF)',
+              'linear-gradient(135deg,#7C3AED,#DB2777)',
+              'linear-gradient(135deg,#0EA5A5,#10B981)',
+              'linear-gradient(135deg,#2563EB,#06B6D4)',
+              'linear-gradient(135deg,#F97316,#EF4444)',
+              'linear-gradient(135deg,#475569,#0F172A)',
+            ];
+            const hash = [...id].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 0);
+            const gradient = gradients[hash % gradients.length];
+
+            let doc;
+            if (category === 'demos') {
+              // Demos must link to a GitHub repo — the gallery renders
+              // clone/fork links from repo.owner/repo.name.
+              const m = repoUrl.match(/^https:\/\/github\.com\/([^\/\s]+)\/([^\/\s#?]+)/);
+              if (!m) {
+                core.setFailed(`Demo submissions need a GitHub repo URL; got: ${repoUrl}`);
+                return;
+              }
+              doc = {
+                id,
+                title: name,
+                mono,
+                gradient,
+                description,
+                longDescription: [description],
+                tags: [
+                  ...ldFeatures.map(f => f.toLowerCase().replace(/[^a-z0-9]+/g, '-')),
+                  ...(customerSpecific ? ['customer-specific'] : []),
+                  ...tags,
+                ],
+                category: customerSpecific ? 'Customer Demos' : 'General',
+                techStack: [...languages, ...(framework ? [framework] : [])],
+                author: { name: owner, email: '' },
+                createdAt: today,
+                updatedAt: today,
+                status: 'published',
+                repo: { owner: m[1], name: m[2].replace(/\.git$/, ''), branch: 'main' },
+                liveDemoUrl: null,
+                launchDarkly: null,
+                customerSpecific,
+                submittedBy: process.env.ISSUE_USER,
+                sourceIssue: Number(process.env.ISSUE_NUMBER),
+              };
+            } else {
+              doc = {
+                id,
+                mono,
+                name,
+                description,
+                bg: gradient,
+                url: repoUrl,
+                repo: repoUrl,
+                owner,
+                customerSpecific,
+                languages,
+                ldFeatures,
+                framework,
+                docker: (form.docker || '').trim(),
+                tags,
+                added: today,
+                submittedBy: process.env.ISSUE_USER,
+                sourceIssue: Number(process.env.ISSUE_NUMBER),
+              };
+            }
+
+            const dir = path.join('catalog', category);
+            fs.mkdirSync(dir, { recursive: true });
+            fs.writeFileSync(path.join(dir, `${id}.json`), JSON.stringify(doc, null, 2) + '\n');
+
+      - name: Validate catalog
+        run: node scripts/validate-catalog.mjs
+
+      - name: Regenerate catalog index
+        run: node scripts/generate-catalog-index.mjs
+
+      - name: Open pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c # v6.1.0
+        with:
+          branch: hub-intake/issue-${{ github.event.issue.number }}
+          commit-message: "Add ${{ github.event.issue.title }} (#${{ github.event.issue.number }})"
+          title: "Add to hub: ${{ github.event.issue.title }}"
+          body: |
+            Automated catalog entry from #${{ github.event.issue.number }}.
+            Review the entry, then merge to publish it in the gallery.
+            Closes #${{ github.event.issue.number }}
+          labels: hub-submission
+
+      - name: Comment link back on the issue
+        if: steps.cpr.outputs.pull-request-url != ''
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `Thanks! A PR to add this to the hub is open: ${process.env.PR_URL}`,
+            });

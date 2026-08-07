@@ -1,0 +1,34 @@
+{
+  "id": "onboarding-personalize",
+  "title": "Onboarding Personalization",
+  "mono": "OP",
+  "gradient": "linear-gradient(135deg,#16A34A,#65A30D)",
+  "description": "Tailor first-run onboarding by persona. No flags — a straightforward standalone demo.",
+  "longDescription": [
+    "A polished onboarding flow that adapts to the selected persona. This one has no connected flags, so split view offers the demo full-width."
+  ],
+  "tags": [
+    "onboarding",
+    "personalization"
+  ],
+  "category": "Onboarding",
+  "techStack": [
+    "React"
+  ],
+  "author": {
+    "name": "Dana Wu",
+    "email": "dwu@launchdarkly.com",
+    "avatarColor": "linear-gradient(135deg,#16A34A,#65A30D)"
+  },
+  "createdAt": "2026-04-30",
+  "updatedAt": "2026-06-10",
+  "status": "published",
+  "repo": {
+    "owner": "Connor-Tluck",
+    "name": "LD_Demo_Hub",
+    "path": "demos/onboarding-personalize",
+    "branch": "main"
+  },
+  "liveDemoUrl": "https://onboarding.demos.dev",
+  "launchDarkly": null
+}

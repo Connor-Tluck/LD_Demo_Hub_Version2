@@ -1,0 +1,55 @@
+{
+  "id": "edge-personalization",
+  "title": "Edge Personalization",
+  "mono": "EP",
+  "gradient": "linear-gradient(135deg,#F97316,#EF4444)",
+  "description": "Personalize at the edge with zero origin hits.",
+  "longDescription": [
+    "Personalize at the edge with zero origin hits."
+  ],
+  "tags": [
+    "edge",
+    "personalization"
+  ],
+  "category": "Targeting",
+  "techStack": [
+    "Cloudflare Workers"
+  ],
+  "author": {
+    "name": "Connor Tluck",
+    "email": "ctluck@launchdarkly.com",
+    "avatarColor": "linear-gradient(135deg,#F97316,#EF4444)"
+  },
+  "createdAt": "2026-08-07",
+  "updatedAt": "2026-08-07",
+  "status": "published",
+  "repo": {
+    "owner": "ld-demos",
+    "name": "edge-personalization",
+    "branch": "main"
+  },
+  "liveDemoUrl": "https://edge.demos.dev",
+  "launchDarkly": {
+    "projectKey": "se-demos",
+    "environmentKey": "production",
+    "flags": [
+      {
+        "key": "edge-rules",
+        "name": "Edge Rules",
+        "description": "",
+        "kind": "boolean",
+        "defaultValue": false,
+        "variations": [
+          {
+            "value": true,
+            "name": "On"
+          },
+          {
+            "value": false,
+            "name": "Off"
+          }
+        ]
+      }
+    ]
+  }
+}

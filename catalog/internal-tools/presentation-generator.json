@@ -1,0 +1,9 @@
+{
+  "id": "presentation-generator",
+  "mono": "PG",
+  "name": "Presentation Generator",
+  "description": "Turn any demo into a customer-ready deck in seconds.",
+  "bg": "linear-gradient(135deg,#3355FF,#7B5CFF)",
+  "url": "#",
+  "placeholder": true
+}

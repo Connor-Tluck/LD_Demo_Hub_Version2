@@ -1,0 +1,13 @@
+{
+  "id": "ld-content-generator",
+  "mono": "CG",
+  "name": "LD Content Generator",
+  "description": "Front-end app tied to an LD skill to generate and edit presentations.",
+  "bg": "linear-gradient(135deg,#7C3AED,#DB2777)",
+  "url": "https://github.com/Connor-Tluck/LD-Content_Generator",
+  "repo": "https://github.com/Connor-Tluck/LD-Content_Generator",
+  "owner": "Connor Tluck",
+  "ldFeatures": [],
+  "added": "2026-07-17",
+  "submittedBy": "Connor-Tluck"
+}

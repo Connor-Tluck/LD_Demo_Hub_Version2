@@ -1,0 +1,35 @@
+{
+  "id": "demo-hyatt",
+  "title": "demo-hyatt",
+  "mono": "HY",
+  "gradient": "linear-gradient(135deg,#475569,#0F172A)",
+  "description": "Customer custom demo for Hyatt.",
+  "longDescription": [
+    "Customer custom demo for Hyatt."
+  ],
+  "tags": [
+    "feature-flags",
+    "experimentation",
+    "observability",
+    "code-control",
+    "customer-specific"
+  ],
+  "category": "Customer Demos",
+  "techStack": [],
+  "author": {
+    "name": "Jason Clark",
+    "email": "",
+    "avatarColor": "linear-gradient(135deg,#F97316,#EF4444)"
+  },
+  "createdAt": "2026-07-17",
+  "updatedAt": "2026-07-17",
+  "status": "published",
+  "repo": {
+    "owner": "areafans",
+    "name": "demo-hyatt",
+    "branch": "main"
+  },
+  "liveDemoUrl": null,
+  "launchDarkly": null,
+  "customerSpecific": true
+}

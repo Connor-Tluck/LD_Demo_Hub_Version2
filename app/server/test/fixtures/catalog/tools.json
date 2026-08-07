@@ -1,0 +1,52 @@
+{
+  "tools": [
+    {
+      "id": "presentation-generator",
+      "mono": "PG",
+      "name": "Presentation Generator",
+      "description": "Turn any demo into a customer-ready deck in seconds.",
+      "bg": "linear-gradient(135deg,#3355FF,#7B5CFF)",
+      "url": "#"
+    },
+    {
+      "id": "claude-skills",
+      "mono": "CS",
+      "name": "Claude Skills Repo",
+      "description": "Reusable agent skills & prompts for the SE team.",
+      "bg": "linear-gradient(135deg,#7C3AED,#DB2777)",
+      "url": "#"
+    },
+    {
+      "id": "component-library",
+      "mono": "UI",
+      "name": "Component Library",
+      "description": "Shared design system and UI kit for demos.",
+      "bg": "linear-gradient(135deg,#0EA5A5,#10B981)",
+      "url": "#"
+    },
+    {
+      "id": "sandbox-provisioner",
+      "mono": "SB",
+      "name": "Sandbox Provisioner",
+      "description": "Spin up isolated demo environments on demand.",
+      "bg": "linear-gradient(135deg,#2563EB,#06B6D4)",
+      "url": "#"
+    },
+    {
+      "id": "brand-assets",
+      "mono": "BA",
+      "name": "Brand & Assets",
+      "description": "Logos, templates, and approved talk tracks.",
+      "bg": "linear-gradient(135deg,#F97316,#EF4444)",
+      "url": "#"
+    },
+    {
+      "id": "runbook-hub",
+      "mono": "RB",
+      "name": "Runbook Hub",
+      "description": "Demo scripts, incident runbooks, and playbooks.",
+      "bg": "linear-gradient(135deg,#475569,#0F172A)",
+      "url": "#"
+    }
+  ]
+}

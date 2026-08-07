@@ -1,0 +1,38 @@
+{
+  "id": "hospitality-app-demo",
+  "title": "Hospitality App Demo",
+  "mono": "HA",
+  "gradient": "linear-gradient(135deg,#2563EB,#06B6D4)",
+  "description": "Custom iOS app demo for a hospitality customer.",
+  "longDescription": [
+    "Custom iOS app demo for a hospitality customer."
+  ],
+  "tags": [
+    "feature-flags",
+    "experimentation",
+    "observability",
+    "agent-control",
+    "customer-specific"
+  ],
+  "category": "Customer Demos",
+  "techStack": [
+    "Swift",
+    "iOS"
+  ],
+  "author": {
+    "name": "Connor Tluck",
+    "email": "ctluck@launchdarkly.com",
+    "avatarColor": "linear-gradient(135deg,#F97316,#EF4444)"
+  },
+  "createdAt": "2026-07-17",
+  "updatedAt": "2026-07-17",
+  "status": "published",
+  "repo": {
+    "owner": "Connor-Tluck",
+    "name": "LD_Hospitality_Demo",
+    "branch": "main"
+  },
+  "liveDemoUrl": null,
+  "launchDarkly": null,
+  "customerSpecific": true
+}
