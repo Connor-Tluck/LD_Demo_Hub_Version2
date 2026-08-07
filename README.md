@@ -83,3 +83,85 @@ GET   /healthz                Integration status
 ```
 
 See `app/server/src/types.ts` for full shapes.
+
+---
+
+# Catalog
+
+<!-- CATALOG:START -->
+_17 item(s). Auto-generated from `catalog/` — do not edit by hand._
+
+**Demos: 9 · Internal Tools: 8 · AI Workflows: 0 · Integrations: 0**
+
+### Demos (9)
+
+| Name | Owner | Customer-specific | Language(s) | LD features | Description |
+| --- | --- | --- | --- | --- | --- |
+| [demo-deere](https://github.com/areafans/demo-deere) | Jason Clark | Yes |  | Feature Flags, Experimentation, Code Control | Customer custom demo for John Deere. |
+| [demo-hyatt](https://github.com/areafans/demo-hyatt) | Jason Clark | Yes |  | Feature Flags, Experimentation, Observability, Code Control | Customer custom demo for Hyatt. |
+| [demo-ptc](https://github.com/areafans/demo-ptc) | Jason Clark | Yes |  | Feature Flags, Observability | Customer custom demo for PTC. |
+| [demo-sherwin](https://github.com/areafans/demo-sherwin) | Jason Clark | Yes |  | Feature Flags, Experimentation, Observability | Customer custom demo for Sherwin-Williams. |
+| [demo-solidcore](https://github.com/areafans/demo-solidcore) | Jason Clark | Yes |  | Feature Flags, Observability | Customer custom demo for Solidcore. |
+| [demo-solidcore-pov](https://github.com/areafans/demo-solidcore-pov) | Jason Clark | Yes |  | Feature Flags, Observability | POV (proof-of-value) variant for Solidcore. |
+| [Hospitality App Demo](https://github.com/Connor-Tluck/LD_Hospitality_Demo) | Connor Tluck | Yes | Swift, iOS | Feature Flags, Experimentation, Observability, Agent Control | Custom iOS app demo for a hospitality customer. |
+| [Prerequisite Flag Orchestration](https://github.com/Connor-Tluck/Pre-Requisite-Flag-Demo) | Connor Tluck | No | Node.js, Express, D3.js, LD Node Server SDK | Observability | Interactive D3 dependency graph — toggle a flag and watch prerequisite dependencies cascade across a multi-team checkout release. |
+| [Release Runner](https://github.com/Connor-Tluck/ld-release-runner) | Connor Tluck | No | Node.js, JavaScript, WebSocket, LD Node Server SDK | Experimentation | Synthetic flag evaluations and metric events that drive real guarded release decisions — demo a healthy rollout or force an auto-rollback on demand. |
+
+### Internal Tools (8)
+
+| Name | Owner | Customer-specific | Language(s) | LD features | Description |
+| --- | --- | --- | --- | --- | --- |
+| [Basica Demo App (Job Tracker)](https://github.com/Connor-Tluck/Job_Tracker_LaunchDarkly) | Connor Tluck | No |  | Feature Flags, Experimentation, Observability, Agent Control | Custom demo showing a job tracker. |
+| Brand & Assets |  | No |  |  | Logos, templates, and approved talk tracks. |
+| Claude Skills Repo |  | No |  |  | Reusable agent skills & prompts for the SE team. |
+| Component Library |  | No |  |  | Shared design system and UI kit for demos. |
+| [LD Content Generator](https://github.com/Connor-Tluck/LD-Content_Generator) | Connor Tluck | No |  |  | Front-end app tied to an LD skill to generate and edit presentations. |
+| Presentation Generator |  | No |  |  | Turn any demo into a customer-ready deck in seconds. |
+| Runbook Hub |  | No |  |  | Demo scripts, incident runbooks, and playbooks. |
+| Sandbox Provisioner |  | No |  |  | Spin up isolated demo environments on demand. |
+
+### AI Workflows (0)
+
+| Name | Owner | Customer-specific | Language(s) | LD features | Description |
+| --- | --- | --- | --- | --- | --- |
+| _nothing here yet_ |  |  |  |  |  |
+
+### Integrations (0)
+
+| Name | Owner | Customer-specific | Language(s) | LD features | Description |
+| --- | --- | --- | --- | --- | --- |
+| _nothing here yet_ |  |  |  |  |  |
+
+## Browse by LD feature
+
+- **Agent Control** — Basica Demo App (Job Tracker), Hospitality App Demo
+- **Code Control** — demo-deere, demo-hyatt
+- **Experimentation** — Basica Demo App (Job Tracker), Hospitality App Demo, Release Runner, demo-deere, demo-hyatt, demo-sherwin
+- **Feature Flags** — Basica Demo App (Job Tracker), Hospitality App Demo, demo-deere, demo-hyatt, demo-ptc, demo-sherwin, demo-solidcore, demo-solidcore-pov
+- **Observability** — Basica Demo App (Job Tracker), Hospitality App Demo, Prerequisite Flag Orchestration, demo-hyatt, demo-ptc, demo-sherwin, demo-solidcore, demo-solidcore-pov
+
+## Browse by language
+
+- **D3.js** — Prerequisite Flag Orchestration
+- **Express** — Prerequisite Flag Orchestration
+- **iOS** — Hospitality App Demo
+- **JavaScript** — Release Runner
+- **LD Node Server SDK** — Prerequisite Flag Orchestration, Release Runner
+- **Node.js** — Prerequisite Flag Orchestration, Release Runner
+- **Swift** — Hospitality App Demo
+- **WebSocket** — Release Runner
+
+## Browse by tag
+
+- **d3.js** — Prerequisite Flag Orchestration
+- **dependency-graph** — Prerequisite Flag Orchestration
+- **guarded-releases** — Release Runner
+- **metrics** — Release Runner
+- **node.js** — Prerequisite Flag Orchestration, Release Runner
+- **prerequisites** — Prerequisite Flag Orchestration
+- **progressive-delivery** — Release Runner
+- **release-orchestration** — Prerequisite Flag Orchestration
+- **server-sdk** — Release Runner
+- **traffic-simulation** — Release Runner
+- **visualization** — Prerequisite Flag Orchestration
+<!-- CATALOG:END -->
